@@ -1,0 +1,36 @@
+ALGORITHM function called insertionSort
+VAR
+arr, testArray = ARRAY_OF INTEGER[];
+currentPosition, i , j = INTEGER
+
+BEGIN
+//calling the function insertionSort
+ function insertionSort(testArray) 
+  let arr = testArray;
+    // Loop through the arr
+    FOR (let i = 1; i < arr.length; i++) DO
+    //The variable currentPosition and j change their value.
+    let currentPosition = arr[i];
+    let j = i - 1;
+
+     WHILE (j >= 0 && arr[j] > currentPosition) DO
+     //arr[j+1] is taking the value from arr[j], j is decrementing and if the condition in while is still true, the work step will be repeated.
+      arr[j + 1] = arr[j];
+      j--;
+    //othervise the while is done
+     END WHILE
+     //arr[j + 1] is taking the value from currentPosition and the i in the loop is incrementing
+      arr[j + 1] = currentPosition;
+
+    END FOR
+    //return the value arr
+    return arr
+  END function
+// give the testArray a value and get the value of arr by calling the function
+    testArray := [2, 9, 3, 6, 4, 7]
+    arr := dot_product(arrayV1, arrayV2)
+    INITIALIZE("give the testArray a value")
+    READ(function insertionSort())
+END
+// Output the final arr value
+WRITE(arr)
