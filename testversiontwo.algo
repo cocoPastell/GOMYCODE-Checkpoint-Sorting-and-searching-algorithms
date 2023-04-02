@@ -1,7 +1,7 @@
 ALGORITHM function called insertionSort
 VAR
 arr, testArray = ARRAY_OF INTEGER[];
-currentPosition, i , j = INTEGER
+i , j, a = INTEGER
 
 BEGIN
 //calling the function insertionSort
@@ -9,19 +9,20 @@ BEGIN
   let arr = testArray;
     // Loop through the arr
     FOR (let i = 1; i < arr.length; i++) DO
-    //The variable currentPosition and j change their value.
-    let currentPosition = arr[i];
+    //The variable j is changing his value.
     let j = i - 1;
 
-     WHILE (j >= 0 && arr[j] > currentPosition) DO
-     //arr[j+1] is taking the value from arr[j], j is decrementing and if the condition in while is still true, the work step will be repeated.
-      arr[j + 1] = arr[j];
-      j--;
-    //othervise the while is done
+     WHILE (arr[i] > arr[j]) DO
+     // if the value of arr[i] is bigger than arr[j], we need to switch the two. To do the switch we need an empty variable to store the value of arr[i]
+        let a = 0
+        a = arr[i];
+        arr[i] = arr[j];
+        arr[j] = a;
+    // i and j are decrementing after the switch, so we can check the other position.     
+        i--;
+        j--;
+//we are done if the condition of the while is not true anymore
      END WHILE
-     //arr[j + 1] is taking the value from currentPosition and the i in the loop is incrementing
-      arr[j + 1] = currentPosition;
-
     END FOR
     //return the value arr
     return arr
